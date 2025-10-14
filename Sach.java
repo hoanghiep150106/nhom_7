@@ -1,15 +1,10 @@
 public class Sach {
-    private String maSach;
-    private String tieuDe;
-    private String tacGia;
-    private int namXuatBan;
-    private int soLuong;
+    protected String maSach;
+    protected String tieuDe;
+    protected String tacGia;
+    protected int namXuatBan;
+    protected int soLuong;
 
-    
-    public Sach() {
-    }
-
-    
     public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
@@ -18,49 +13,37 @@ public class Sach {
         this.soLuong = soLuong;
     }
 
-    
     public String getMaSach() {
-        return maSach;
-    }
+         return maSach; }
     public void setMaSach(String maSach) {
-        this.maSach = maSach;
-    }
+         this.maSach = maSach; }
+
     public String getTieuDe() {
-        return tieuDe;
-    }
+         return tieuDe; }
     public void setTieuDe(String tieuDe) {
-        this.tieuDe = tieuDe;
-    }
-    public String getTacGia() {
-        return tacGia;
-    }
-    public void setTacGia(String tacGia) {
-        this.tacGia = tacGia;
-    }
+         this.tieuDe = tieuDe; }
+
+    public String getTacGia() { 
+        return tacGia; }
+    public void setTacGia(String tacGia) { 
+        this.tacGia = tacGia; }
+
     public int getNamXuatBan() {
-        return namXuatBan;
-    }
+         return namXuatBan; }
     public void setNamXuatBan(int namXuatBan) {
-        this.namXuatBan = namXuatBan;
-    }
+         this.namXuatBan = namXuatBan; }
+
     public int getSoLuong() {
-        return soLuong;
+         return soLuong; }
+    public void setSoLuong(int soLuong) { 
+        this.soLuong = soLuong; }
+
+    @Override
+    public String toString() {
+        return "Mã sách: " + maSach + 
+               ", Tiêu đề: " + tieuDe + 
+               ", Tác giả: " + tacGia + 
+               ", Năm xuất bản: " + namXuatBan + 
+               ", Số lượng: " + soLuong;
     }
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
-    }
-
-    
-    public void hienThiThongTin() {
-        System.out.println("===== THONG TIN SACH =====");
-        System.out.println("Ma sach: " + maSach);
-        System.out.println("Tieu de: " + tieuDe);
-        System.out.println("Tac gia: " + tacGia);
-        System.out.println("Nam xuat ban: " + namXuatBan);
-        System.out.println("So luong: " + soLuong);
-        System.out.println("==========================");
-    }
-}   
-
-
-
+}
