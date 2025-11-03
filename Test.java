@@ -1,17 +1,16 @@
+package nhom_7.tuan5.src;
+
 public class Test {
     public static void main(String[] args) {
-        QuanLySach ql = new QuanLySach();
+        SachGiaoTrinh gt = new SachGiaoTrinh("GT001", "Giải tích 1", "Nguyễn Văn A", 2022, 50, 100000, "Toán học",
+                "Đại học");
+        SachTieuThuyet tt = new SachTieuThuyet("TT002", "Doraemon", "Fujiko F. Fujio", 2020, 100, 80000, "Thiếu nhi",
+                true);
 
-        SachGiaoTrinh sg = new SachGiaoTrinh("GT01", "Lập trình Java", "Nguyễn Văn A", 2020, 50000, 150, "Công nghệ thông tin");
-        SachTieuThuyet st = new SachTieuThuyet("TT01", "Harry Potter", "J.K. Rowling", 2018, 80000, 50, true);
+        System.out.println("=== Thông tin Sách Giáo Trình ===");
+        System.out.println(gt.toString());
 
-        ql.themSach(sg);
-        ql.themSach(st);
-
-        ql.hienThiDanhSachSach();
-
-        IKiemKe kiemKe = sg;
-        System.out.println("Kiểm tra tồn kho >= 100: " + kiemKe.kiemTraTonKho(100));
-        kiemKe.capNhatViTri("Kho A1 - Kệ 5");
+        System.out.println("\n=== Thông tin Sách Tiểu Thuyết ===");
+        System.out.println(tt.toString());
     }
 }

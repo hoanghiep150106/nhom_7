@@ -1,43 +1,38 @@
-public abstract class Sach {
-    private String maSach;
-    private String tieuDe;
-    private String tacGia;
-    private int namXuatBan;
-    private double giaCoBan;
-    private int soLuong;
+package nhom_7.tuan5.src;
 
-    public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, double giaCoBan, int soLuong) {
+public abstract class Sach implements GiaSach {
+    protected String maSach;
+    protected String tieuDe;
+    protected String tacGia;
+    protected int namXuatBan;
+    protected int soLuong;
+    protected double giaCoBan;
+
+    public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
         this.namXuatBan = namXuatBan;
-        this.giaCoBan = giaCoBan;
         this.soLuong = soLuong;
+        this.giaCoBan = giaCoBan;
     }
 
-    public String getMaSach() { return maSach; }
-    public void setMaSach(String maSach) { this.maSach = maSach; }
+    public String getMaSach() {
+        return maSach;
+    }
 
-    public String getTieuDe() { return tieuDe; }
-    public void setTieuDe(String tieuDe) { this.tieuDe = tieuDe; }
+    public void setGiaCoBan(double giaCoBan) {
+        this.giaCoBan = giaCoBan;
+    }
 
-    public String getTacGia() { return tacGia; }
-    public void setTacGia(String tacGia) { this.tacGia = tacGia; }
-
-    public int getNamXuatBan() { return namXuatBan; }
-    public void setNamXuatBan(int namXuatBan) { this.namXuatBan = namXuatBan; }
-
-    public double getGiaCoBan() { return giaCoBan; }
-    public void setGiaCoBan(double giaCoBan) { this.giaCoBan = giaCoBan; }
-
-    public int getSoLuong() { return soLuong; }
-    public void setSoLuong(int soLuong) { this.soLuong = soLuong; }
-
-    public abstract double tinhGiaBan();
+    @Override
+    public abstract double tinhGiaBan(); // đa hình
 
     @Override
     public String toString() {
         return "Mã sách: " + maSach + ", Tiêu đề: " + tieuDe + ", Tác giả: " + tacGia +
-                ", Năm XB: " + namXuatBan + ", Giá cơ bản: " + giaCoBan + ", Số lượng: " + soLuong;
+                ", Năm: " + namXuatBan + ", SL: " + soLuong + ", Giá bán: " + tinhGiaBan();
     }
+
+    protected abstract void setSoLuong(int soLuongMoi);
 }
