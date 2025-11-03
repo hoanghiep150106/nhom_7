@@ -1,34 +1,33 @@
-public class SachGiaoTrinh extends Sach implements IKiemKe {
+
+public class SachGiaoTrinh extends Sach {
     private String monHoc;
+    private String capDo;
 
-    public SachGiaoTrinh(String maSach, String tieuDe, String tacGia, int namXuatBan,
-                         double giaCoBan, int soLuong, String monHoc) {
-        super(maSach, tieuDe, tacGia, namXuatBan, giaCoBan, soLuong);
+    public SachGiaoTrinh(){ super(); }
+    public SachGiaoTrinh(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan, String viTri,
+                        String monHoc, String capDo){ 
+        // Gọi đến hàm tạo của lớp cha (Sach) để khởi tạo các thuộc tính chung
+        super(maSach,tieuDe,tacGia,namXuatBan,soLuong,giaCoBan,viTri);
         this.monHoc = monHoc;
+        this.capDo = capDo;
     }
-
-    public String getMonHoc() { return monHoc; }
-    public void setMonHoc(String monHoc) { this.monHoc = monHoc; }
+    // Các phương thức getter và setter cho thuộc tính riêng
+    public void setmonHoc(String monHoc){ this.monHoc = monHoc; }
+    public String getmonHoc(){ return monHoc; }
+    public void setcapDo(String capDo){ this.capDo = capDo; }
+    public String getcapDo(){ return capDo; }
 
     @Override
-    public double tinhGiaBan() {
-        int soNam = 2025 - getNamXuatBan();
-        return getGiaCoBan() + (soNam * 5000);
-    }
-
-    @Override
-    public boolean kiemTraTonKho(int soLuongToiThieu) {
-        return getSoLuong() >= soLuongToiThieu;
-    }
-
-    @Override
-    public void capNhatViTri(String viTriMoi) {
-        System.out.println("Đã chuyển sách \"" + getTieuDe() + "\" đến khu vực: " + viTriMoi);
+    public double tinhGiaBan()
+    {
+        return (getgiaCoBan() + (2025-getNamXuatBan())*5000);
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Môn học: " + monHoc +
-               ", Giá bán: " + tinhGiaBan() + " VNĐ";
+        return "SachGiaoTrinh{" + getThongTinCoBan() + 
+            ", monHoc = '" + monHoc + '\'' +
+            ", capDo = '" + capDo + '\'' +
+            ", GiaBan = '" + tinhGiaBan() + '\'' + '}';
     }
 }
