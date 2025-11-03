@@ -1,33 +1,23 @@
-public class SachTieuThuyet extends Sach implements IKiemKe {
-    private boolean laSachSeries;
+package nhom_7.tuan5.src;
 
-    public SachTieuThuyet(String maSach, String tieuDe, String tacGia, int namXuatBan,
-                          double giaCoBan, int soLuong, boolean laSachSeries) {
-        super(maSach, tieuDe, tacGia, namXuatBan, giaCoBan, soLuong);
-        this.laSachSeries = laSachSeries;
+public class SachTieuThuyet extends Sach {
+    private String theLoai;
+    private boolean banDacBiet;
+
+    public SachTieuThuyet(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong,
+            double giaCoBan, String theLoai, boolean banDacBiet) {
+        super(maSach, tieuDe, tacGia, namXuatBan, soLuong, giaCoBan);
+        this.theLoai = theLoai;
+        this.banDacBiet = banDacBiet;
     }
-
-    public boolean isLaSachSeries() { return laSachSeries; }
-    public void setLaSachSeries(boolean laSachSeries) { this.laSachSeries = laSachSeries; }
 
     @Override
     public double tinhGiaBan() {
-        return getGiaCoBan() + (laSachSeries ? 15000 : 0);
+        return banDacBiet ? giaCoBan * 1.3 : giaCoBan; // nếu bản đặc biệt tăng 30%
     }
 
     @Override
-    public boolean kiemTraTonKho(int soLuongToiThieu) {
-        return getSoLuong() >= soLuongToiThieu;
-    }
-
-    @Override
-    public void capNhatViTri(String viTriMoi) {
-        System.out.println("Đã chuyển sách \"" + getTieuDe() + "\" đến khu vực: " + viTriMoi);
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", Là series: " + laSachSeries +
-               ", Giá bán: " + tinhGiaBan() + " VNĐ";
+    protected void setSoLuong(int soLuongMoi) {
+        throw new UnsupportedOperationException("Unimplemented method 'setSoLuong'");
     }
 }
